@@ -1,0 +1,30 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<div class="container mt-3">
+    <h1 class="text-center mt-5">Listado de Morosos</h1>
+    <div class="row" id="cuadro">
+
+        <div class="col-sm-3" *ngFor="let moroso of morosos">
+            <div class="card mt-5">
+              <img class="card-img-top imgMoroso" [src]="moroso.imgUrl">
+                <div class="card-body mt-5">
+                  <h2 class="card-title text-center">{{moroso.nombre}} {{moroso.apellido}}</h2>
+                  <hr/>
+                  <h6 class="card-subtitle mb-2 text-muted divider">Informacion</h6>
+                  <hr/>
+                  <p class="card-text divider">Telefono: {{moroso.telefono}}</p>
+                  <hr/>
+                  <p class="card-text divider">Deuda: {{moroso.deuda}} euros</p>
+                  <hr/>
+                  <p class="card-text divider">Motivo: {{moroso.motivo}}</p>
+                  <hr/>
+                  <p class="card-text divider">Inicio de la deuda: {{moroso.inicioDeuda}}</p>
+                  <hr/>
+                  <p class="card-text divider">Fin del pago: {{moroso.finDeuda}}</p>
+                  <hr/>
+                  <button class="btn- btn-dark text-center mx-auto" [routerLink]="['/formAddMoroso/', moroso.id]">CONFIGURACION</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

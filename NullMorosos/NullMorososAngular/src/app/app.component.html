@@ -1,0 +1,16 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+
+<div *ngIf="usuario && !cargando; else showLogin">
+    <app-menu></app-menu>
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template #showLogin>
+  <div *ngIf="cargando" class="text-center">
+    <h1>CARGANDO</h1>
+    <div class="lds-ripple"><div></div><div></div></div>
+  </div>
+  <app-login *ngIf="!cargando"></app-login>
+</ng-template>
+<router-outlet></router-outlet>

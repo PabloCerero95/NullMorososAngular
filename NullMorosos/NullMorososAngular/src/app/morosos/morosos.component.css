@@ -1,0 +1,31 @@
+.imgMoroso{
+    height: 250px;
+}
+
+button{
+    font-size: 16px;
+    font-weight: 500!important;
+    background-color: rgb(27, 31, 255, 0.4);;
+    box-shadow:0 0 30px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+}
+
+p, h6{
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+}
+
+h2{
+    font-family: 'Teko', sans-serif;
+}
+
+h1, #cuadro{
+    font-size: 40px;
+    border: solid #cacaca;
+    padding: 15px;
+    border-radius: 2px;
+    background-color:rgb(27, 31, 255, 0.4);
+    font-family: 'Teko', sans-serif;
+}
+
+

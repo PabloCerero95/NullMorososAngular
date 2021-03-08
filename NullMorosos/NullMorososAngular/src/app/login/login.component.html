@@ -1,0 +1,35 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Teko&display=swap" rel="stylesheet">
+
+<div class="container" id="formMenu">
+    <div class=text-center>
+        <img src='assets/LogoNullMorosos.PNG' alt="">
+        <h3>Bienvenido, ingrese sus datos</h3>
+    </div>
+    <form [formGroup]="formularioLogin">
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electronico</label>
+          <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp" placeholder ="Ingrese su correo">
+          <div *ngIf="formularioLogin.controls['email'].invalid && formularioLogin.controls['email'].dirty" class="alert alert-danger" role="alert">
+            <span *ngIf="formularioLogin.controls['email'].errors.required">¡Ponga su correo electronico!</span>
+            <span *ngIf="formularioLogin.controls['email'].errors.email">Correo incorrecto</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" (keyUp.enter)="ingresar()" class="form-control" id="password" formControlName="password" placeholder ="Ingrese su contraseña">
+          <div *ngIf="formularioLogin.controls['password'].invalid && formularioLogin.controls['password'].dirty" class="alert alert-warning" role="alert">
+            <span *ngIf="formularioLogin.controls['password'].errors.required">¡Ponga su contraseña!</span>
+            <span *ngIf="formularioLogin.controls['password'].errors.email">Contraseña incorrecta</span>
+          </div>
+        </div>
+        <div class=text-center>
+            <button type="submit" (click)="ingresar()" [disabled]="!formularioLogin.valid" class="btn btn-primary">Ingreso</button>
+        </div>
+      </form>
+      <div *ngIf="!datosCorrectos" class="alert alert-danger" role="alert">
+        {{textoFail}}
+      </div>
+      <ngx-spinner bdColor = "rgba(103,101,236,0.8)" size = "medium" color = "#2749f4" type = "ball-spin" [fullScreen] = "true">
+        <p style="color: white">INGRESANDO A NULLMOROSOS </p></ngx-spinner>
+</div>

@@ -1,0 +1,60 @@
+<div class="container mt-5 col-md-offset-3">
+    <form id="form" class="text-center center-block" [formGroup]="formMoroso" action="">
+        <div class="row col-sm-6  mx-auto">
+            <div class="col-sm-15">
+                <div class="form-group text-center">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Añadir nombre de moroso">
+            </div>
+            </div>
+            <div class="col-sm-15 center-block">
+                <div class="form-group">
+                    <label for="">Apellido</label>
+                    <input type="text" class="form-control" formControlName="apellido" placeholder="Añadir Apellido de moroso">
+                </div>
+            </div>
+            <div class="col-sm-15 ">
+                <div class=form-group>
+                    <label for="">Telefono</label>
+                    <input type="tel" class="form-control" formControlName="telefono" placeholder="Añadir telefono de moroso" >
+                </div>
+            </div>
+            <div class="col-sm-15 ">
+                <div class=form-group>
+                    <label for="">Deuda</label>
+                    <input type="number" class="form-control" formControlName="deuda" placeholder="Añadir la deuda del de moroso" >
+                </div>
+            </div>
+            <div class="col-sm-15 ">
+                <div class=form-group>
+                    <label for="">Motivo</label>
+                    <input type="text" class="form-control" formControlName="motivo" placeholder="Añadir el motivo del moroso" >
+                </div>
+            </div>
+            <div class="col-sm-15 ">
+                <div class=form-group>
+                    <label for="">Inicio de la deuda</label>
+                    <input type="date" class="form-control" formControlName="inicioDeuda" placeholder="¿Desde cuando te debe?" >
+                </div>
+            </div>
+                <div class="col-sm-15 ">
+                    <div class=form-group>
+                        <label for="">Fin de la deuda</label>
+                        <input type="date" class="form-control" formControlName="finDeuda" placeholder="¿Cual es su plazo limite?" >
+                    </div>
+                </div>
+            <div class="col-sm-12 mt-5">
+                <div class=form-group>
+                    <label for="">Imagen</label>
+                    <input type="file" (change)="upPhoto($event)" class="form-control-file" formControlName="imgUrl" placeholder="Añadir photo de moroso" >
+            </div>
+            </div>
+            <div class="col-sm-12 mt-5">
+                <progressbar [max]="100" [value]="Subida" type="info" [striped]="true" [animate]="true"><i>{{Subida}}%</i></progressbar>
+            </div>
+            <button *ngIf="!editarMoroso" class= "btn btn-primary mt-5" [disabled]="formMoroso.invalid"(click)="agregar()">Añadir moroso</button>
+            <button *ngIf="editarMoroso" class= "btn btn-success mt-5" (click)="editar()">Editar moroso</button>
+            <button *ngIf="editarMoroso" class= "btn btn-danger mt-5" (click)="deleteObject()">Eliminar moroso</button>
+        </div>
+        </form>
+</div>
